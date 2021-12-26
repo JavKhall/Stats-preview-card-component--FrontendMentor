@@ -1,0 +1,211 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;700&family=Lexend+Deca&display=swap');
+
+/* 
+*/
+
+:root {
+	--VeryDarkBlue: hsl(233, 47%, 7%); /* main background */
+	--DarkDesaturatedBlue: hsl(244, 38%, 16%); /* card background */
+	--SoftViolet: hsl(277, 64%, 61%); /* accent */
+	--White: hsl(0, 0%, 100%); /* main heading, stats */
+	--SlightlyTransparentWhite: hsla(0, 0%, 100%, 0.75); /* main paragraph */
+	--SlightlyTransparentWhiteStat: hsla(0, 0%, 100%, 0.6); /* stat headings */
+}
+
+* {
+	margin: 0px;
+	padding: 0px;
+	box-sizing: border-box;
+}
+
+body {
+	display: flex;
+	flex-direction: column;
+	height: 100vh;
+	justify-content: center;
+	align-content: center;
+	background-color: var(--VeryDarkBlue);
+}
+
+/* Configuracion del espacio general */
+.card {
+	display: grid;
+	height: 450px;
+	width: 1140px;
+	margin: auto;
+	grid-template-areas: 
+		"informacion	imagen";
+	transition: .5s ease-in-out;
+} 
+
+/* Configuracion del texto de la tarjeta */
+.card-informacion {
+	grid-area: informacion;
+	display: flex;
+	flex-direction: column;
+	width: 570px;
+	border-top-left-radius: 10px;
+	border-bottom-left-radius: 10px;
+	background-color: var(--DarkDesaturatedBlue);
+	color: var(--White);
+	padding: 80px 75px 60px 75px;
+	font-family: 'Inter', sans-serif;
+}
+
+.informacion-titulo {
+	font-size: 40px;
+	font-weight: 700;
+}
+
+.informacion-titulo span {
+	color: var(--SoftViolet);
+}
+
+.informacion-descripcion {
+	margin: 40px 0px;
+	width: 400px;
+	line-height: 1.7rem;
+	font-family: 'Inter', sans-serif;
+	font-weight: 400;
+	color: var(--SlightlyTransparentWhite);
+}
+
+/* Configuracion de estadisticas */
+.card-estadisticas {
+	display: flex;
+	width: 350px;
+	justify-content: space-between;
+	margin-top: 20px;
+}
+
+.informacion-estadisticas {
+	display: flex;
+	flex-direction: column;
+}
+
+.estad-numero {
+	font-size: 20px;
+	font-weight: 700;
+}
+
+.estad-rubro {
+	text-transform: uppercase;
+	font-family: 'Lexend Deca', sans-serif;
+	font-size: 12px;
+	margin-top: 5px;
+	color: var(--SlightlyTransparentWhiteStat);
+}
+
+/* Configuracion del espacion de la imagen */
+.card-imagen {
+	grid-area: imagen;
+	width: 570px;
+	display: flex;
+	justify-content: center;
+	align-content: center;
+	background-color: var(--SoftViolet);
+	border-top-right-radius: 10px;
+	border-bottom-right-radius: 10px;
+}
+
+.card-imagen-desktop {
+	display: flex;
+	width: 100%;
+	opacity: .60;
+	border-top-right-radius: 10px;
+	border-bottom-right-radius: 10px;
+}
+
+.card-imagen-mobile {
+	display: none;
+	width: 100%;
+	opacity: .60;	
+	border-top-right-radius: 10px;
+	border-top-left-radius: 10px;
+}
+
+/** =========================================== */
+/** Configuracion responsiva */
+@media screen and (max-width: 540px) {
+	.card {
+		height: 780px;
+		width: 328px;
+		grid-template-areas: 
+			"imagen"
+			"informacion";
+		transition: .5s ease-in-out;
+		margin: auto;
+	}
+
+	.card-imagen {
+		grid-area: imagen;
+		width: 328px;
+		border-top-right-radius: 10px;
+		border-top-left-radius: 10px;
+		border-bottom-right-radius: 0px;
+	}
+
+	.card-imagen-desktop {
+		display: none;
+	}
+
+	.card-imagen-mobile {
+		display: flex;
+		width: 100%;
+		opacity: .60;	
+	}
+
+	.card-informacion {
+	grid-area: informacion;
+	width: 328px;
+	height: 540px;
+	justify-content: center;
+	border-top-left-radius: 0px;
+	border-bottom-left-radius: 10px;
+	border-bottom-right-radius: 10px;
+	padding: 30px 36px 42px 36px;
+	}
+
+	.informacion-titulo {
+		font-size: 26px;
+		text-align: center;
+		margin: 0px;
+		position: top;
+	}
+
+	.informacion-descripcion {
+		margin: 20px 0px;
+		width: 100%;
+		text-align: center;
+		font-size: 15px;
+	}
+
+	.card-estadisticas {
+		flex-direction: column;
+		align-content: space-between;
+		width: 100%;
+		height: 100%;
+		text-align: center;
+		margin-top: 20px;
+	}
+
+	.estad-numero {
+		font-size: 20px;
+		font-weight: 700;
+	}
+	
+	.estad-rubro {
+		text-transform: uppercase;
+		font-family: 'Lexend Deca', sans-serif;
+		font-size: 12px;
+		margin-top: 5px;
+		color: var(--SlightlyTransparentWhiteStat);
+	}
+
+
+
+}
+
+
+/* .attribution { font-size: 11px; text-align: center; }
+.attribution a { color: hsl(228, 45%, 44%); } */
